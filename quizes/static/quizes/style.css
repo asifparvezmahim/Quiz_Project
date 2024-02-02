@@ -1,0 +1,25 @@
+.qst_container{
+    padding-left: 30px;
+}
+
+.ans_container{
+    padding-left: 30px;
+}
+
+.submit{
+    padding-left: 30px;
+}
+
+@media only screen and (max-width: 400px){
+    .qst_container{
+        padding-left: 10px;
+    }
+    
+    .ans_container{
+        padding-left: 10px;
+    }
+
+    .submit{
+        padding-left: 10px;;
+    }
+}
