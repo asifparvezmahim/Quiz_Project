@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "category",
     "difficulty",
     "accounts",
+    "quiz_taken",
 ]
 
 

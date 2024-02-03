@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Quiz
 from category.models import Category
-from django.views.generic import ListView  # Create your views here.
+from quiz_taken.models import Quiz_Taken
 from django.http import JsonResponse
 from questions.models import Question, Answer
 from result.models import Result
@@ -94,6 +94,14 @@ def save_quiz_view(request, pk):
         percent = (score / fullMarks) * 100
         percent_ = percent
         fullMarks = fullMarks
+
+        if Result.objects.filter(user=user, exam_name=exam_name).exists():
+            print("Exist")
+
+        else:
+            print("Not Exist")
+            print(user, exam_name)
+
         Result.objects.create(
             quiz=quiz,
             user=user,
