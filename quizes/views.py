@@ -1,14 +1,25 @@
 from django.shortcuts import render
 from .models import Quiz
+from category.models import Category
 from django.views.generic import ListView  # Create your views here.
 from django.http import JsonResponse
 from questions.models import Question, Answer
 from result.models import Result
 
 
-class QuizListView(ListView):
-    model = Quiz
-    template_name = "main.html"
+# class QuizListView(ListView):
+#     model = Quiz
+#     template_name = "main.html"
+def QuizList(request, category_slug=None):
+    object_list = Quiz.objects.all()
+    if category_slug is not None:
+        category = Category.objects.get(slug=category_slug)
+        object_list = Quiz.objects.filter(category=category)
+
+    category = Category.objects.all()
+    return render(
+        request, "main.html", {"object_list": object_list, "category": category}
+    )
 
 
 def quiz_view(request, pk):

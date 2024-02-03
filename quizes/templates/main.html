@@ -36,7 +36,19 @@
 </div>
 
 <div class="filter_container">
-  <div class="cat_filter">Filter By Category</div>
+  <div class="cat_filter">
+    <h5 class="text-center">Filter By Category</h5>
+    <p class="text-center">Click On Your Desire Category</p>
+    <hr>
+    <div class="category d-flex flex-wrap mt-4">
+      <a href="{%url "quiz"%}" class="text-decoration-none col-sm-4">All</a>
+      {%for cat in category%}
+         <div class="col-sm-4">
+          <a class="text-decoration-none" href="{%url "cat_wise_post" cat.slug %}">{{cat.name}}</a>
+         </div>
+      {%endfor%}
+    </div>
+  </div>
   <div class="dif_filter">Filter By Difficulty</div>
 </div>
 
