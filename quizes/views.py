@@ -38,7 +38,6 @@ def save_quiz_view(request, pk):
         questions = []
         data = request.POST
         data_ = dict(data.lists())
-        print("Data", data)
         data_.pop("csrfmiddlewaretoken")
         for k in data_.keys():
             question = Question.objects.get(text=k)
@@ -47,7 +46,6 @@ def save_quiz_view(request, pk):
         user = request.user
         quiz = Quiz.objects.get(pk=pk)
         exam_name = Quiz.objects.get(pk=pk).topic
-        print("Exam Name : ", exam_name)
 
         result = []
         correct_answer = None
@@ -94,7 +92,6 @@ def save_quiz_view(request, pk):
             percent=percent_,
             fullMarks=fullMarks,
         )
-        print(correct)
 
         if percent_ > quiz.required_to_pass:
             return JsonResponse({"passed": True, "score": score_, "result": result})

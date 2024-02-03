@@ -1,0 +1,26 @@
+.obj_name {
+    text-decoration: none;
+}
+
+.filter_container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cat_filter{
+   
+   margin: 30px;
+   padding: 20px;
+   width: 50%;
+   background-color: bisque;
+   border-radius: 5px;
+
+}
+
+.dif_filter{
+    margin: 30px;
+    padding: 20px;
+    width: 50%;
+    background-color: bisque;
+    border-radius: 5px;
+}
