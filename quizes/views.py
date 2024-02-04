@@ -99,11 +99,8 @@ def save_quiz_view(request, pk):
             print("Exist")
 
         else:
-            print("Not Exist")
-            print(user, exam_name)
             quiz_name = Quiz.objects.get(pk=pk)
-            Quiz_Taken.objects.create(user=user, quiz_name=quiz_name)
-            print(quiz_name)
+            Quiz_Taken.objects.create(user=user, quiz_name=quiz_name, score=score)
 
         total_quizes = Quiz.objects.all().count()
         completed_quizes = Quiz_Taken.objects.filter(user=request.user).count()
@@ -120,7 +117,6 @@ def save_quiz_view(request, pk):
             completed_quizes=completed_quizes,
             percent_of_attempts=percent_of_attempts,
         )
-
         if percent_ > quiz.required_to_pass:
             return JsonResponse({"passed": True, "score": score_, "result": result})
 

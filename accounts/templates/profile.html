@@ -21,9 +21,13 @@
   <h3>Quiz Progress Report</h3>
   <h6>Total Quizes: {{progress.total_quizes}} </h6>
   <h6>Complete Quizes: {{progress.completed_quizes}} </h6>
-  <h6>Percent: {{progress.percent_of_attempts}} %</h6>
-  <div class="progress prg_bar">
-    <div class="progress-bar " role="progressbar" style="width: {{progress.percent_of_attempts}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="percentage">
+    <div class="manual">
+      <h6>Percent: {{progress.percent_of_attempts}} %</h6>
+    </div>
+    <div class="progress prg_bar">
+      <div class="progress-bar " role="progressbar" style="width: {{progress.percent_of_attempts}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
   </div>
 </div>
 <div class="res_sheet mt-5">
