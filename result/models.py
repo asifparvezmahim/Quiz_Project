@@ -12,6 +12,9 @@ class Result(models.Model):
     total_questions = models.CharField(max_length=500, blank=True, null=True)
     percent = models.CharField(max_length=500, blank=True, null=True)
     fullMarks = models.CharField(max_length=500, blank=True, null=True)
+    total_quizes = models.CharField(max_length=100, blank=True, null=True)
+    completed_quizes = models.CharField(max_length=100, blank=True, null=True)
+    percent_of_attempts = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return str(self.pk)

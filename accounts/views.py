@@ -6,12 +6,16 @@ from django.contrib.auth.decorators import login_required
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from result.models import Result
+from quiz_taken.models import Quiz_Taken
 
 
 def profile(request):
     result_history = Result.objects.filter(user=request.user)
-    print(result_history)
-    return render(request, "profile.html", {"result": result_history})
+    progress = Result.objects.filter(user=request.user).last()
+    print("PROG-> ", progress)
+    return render(
+        request, "profile.html", {"result": result_history, "progress": progress}
+    )
 
 
 def register(request):

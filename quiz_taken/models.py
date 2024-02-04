@@ -7,3 +7,6 @@ from django.contrib.auth.models import User
 class Quiz_Taken(models.Model):
     quiz_name = models.ForeignKey(Quiz, on_delete=models.CASCADE, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.quiz_name.topic} quiz is taken by {self.user}"

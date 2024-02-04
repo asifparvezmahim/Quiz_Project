@@ -1,0 +1,45 @@
+.username {
+    color: red;
+    font-weight: bold;
+}
+.profile_container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+.user_hr{
+    width: 30%;
+    margin-left: 35%;
+}
+.user_info{
+    margin-left: 40%;
+    margin-top: 2%;
+}
+
+.quiz_progress{
+    margin-left: 2%;
+}
+
+.res_sheet{
+    width: 80%;
+    margin-left: 2%;
+}
+
+.prg_bar{
+    width: 20%;
+}
+
+@media only screen and (max-width: 400px){
+    .user_hr{
+        width: 60%;
+        /* margin-left: 35%; */
+    }
+
+    .res_sheet{
+        width: 100%;
+        margin-left: 0%;
+    } 
+    
+}
