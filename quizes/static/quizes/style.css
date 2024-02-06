@@ -10,6 +10,9 @@
     padding-left: 30px;
 }
 
+.quiz-box{
+    width:80%;
+}
 
 @media only screen and (max-width: 400px){
     .qst_container{

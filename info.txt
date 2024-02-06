@@ -1,2 +1,2 @@
 Git -> Quiz Project
-6th commit done
+7th commit done
