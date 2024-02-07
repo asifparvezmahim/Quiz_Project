@@ -14,8 +14,10 @@ from django.contrib.auth.models import User
 
 
 def profile(request):
-    result_history = Result.objects.filter(user=request.user)
-    progress = Result.objects.filter(user=request.user).last()
+    user = request.user
+    print("USER 18 ", user)
+    result_history = Result.objects.filter(user=user)
+    progress = Result.objects.filter(user=user).last()
     print("PROG-> ", progress)
     return render(
         request, "profile.html", {"result": result_history, "progress": progress}

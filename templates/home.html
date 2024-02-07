@@ -1,3 +1,24 @@
-{% extends "base.html" %} {%block content%}
-<h2>Home Page</h2>
+{% extends "base.html" %} {%load static%} {%block script%}
+<link rel="stylesheet" href="{% static '/css/style.css' %}" />
+{%endblock%} {%block content%}
+<div class="container">
+  <div class="description">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur dolores
+      enim tempore. Quidem odio reiciendis reprehenderit, laborum corrupti
+      aliquid rerum laudantium odit explicabo quam quia ad vero molestias
+      perspiciatis ratione inventore itaque ex fuga, culpa animi eos sit tenetur
+      illum ut. In dolorem labore nemo voluptas eveniet minima provident
+      suscipit voluptate et vel quas, eos eius expedita placeat repellat
+      officiis a quaerat quod, laudantium libero recusandae dolores voluptatum
+      incidunt earum! Velit sed magnam at molestias! Id ducimus aut dicta iste
+      possimus quaerat nam repudiandae assumenda? Ad harum vel totam fugiat, a
+      veritatis beatae, facere ut quidem deserunt illo assumenda hic.
+    </p>
+  </div>
+
+  <div class="img-container">
+    <img class="img" src="{% static '/image/quiz_ban.png'%}" alt="" srcset="" />
+  </div>
+</div>
 {%endblock%}

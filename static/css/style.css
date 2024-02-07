@@ -1,0 +1,31 @@
+.img{
+    width: 150%;
+}
+
+.description{
+    margin-top: 90px;
+    width: 50%;
+}
+
+.container{
+    margin-top: 25px;
+    display: flex;
+    margin-left: 80px;
+}
+
+@media only screen and (max-width: 400px){
+    .container{
+        flex-direction: column-reverse;
+        margin-left: 00px;
+    }
+
+    .img{
+        width: 100%;
+    }
+    
+    .description{
+        margin-top: 10px;
+        width: 100%;
+    }
+
+}
