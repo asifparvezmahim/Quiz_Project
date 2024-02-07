@@ -13,6 +13,28 @@
     margin-left: 80px;
 }
 
+.notice_container{
+    margin-top: 50px;
+    margin-left: 20%;
+    border: 2px solid antiquewhite;
+    background-color: antiquewhite;
+    height: 350px;
+    width: 60%;
+    margin-bottom: 5%;
+    padding-left: 2%;
+    border-radius: 10px;
+}
+
+.notice_title{
+    color: red;
+    margin-left: 40%;
+    margin-top: 5%;
+}
+
+.logo_img{
+    width: 90px;
+}
+
 @media only screen and (max-width: 400px){
     .container{
         flex-direction: column-reverse;
@@ -27,5 +49,19 @@
         margin-top: 10px;
         width: 100%;
     }
+
+    .notice_container{
+        margin-top: 10px;
+        margin-left: 0%;
+        height: 620px;
+        width: 100%;
+    }
+
+    .notice_title{
+        color: red;
+        margin-left: 0%;
+        margin-top: 5%;
+    }
+     
 
 }
