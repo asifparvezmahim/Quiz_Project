@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "difficulty",
     "accounts",
     "quiz_taken",
+    "ratings",
 ]
 
 
@@ -135,6 +136,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "quizes" / "static",
     BASE_DIR / "accounts" / "static",
+    # BASE_DIR / "accounts" / "static",
 ]
 
 # Default primary key field type

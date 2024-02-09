@@ -1,11 +1,23 @@
-{% extends 'base.html' %} {% load crispy_forms_tags %} {%block title%}
+{% extends 'base.html' %} {% load crispy_forms_tags %} {%load static%} <br />
+{%block script%}
+<link rel="stylesheet" href="{% static 'accounts/auth.css' %}" />
+{%endblock%} {%block title%}
 <title>{{type}} Page</title>
 {%endblock%} {% block content %}
-<form style="width: 50%; margin: auto" method="post">
-  <h1>{{type}} Page</h1>
-  {% csrf_token %} {{form | crispy}}
+<div class="reg_container">
+  <div class="auth_container">
+    <div class="form">
+      <form style="margin: auto" method="post">
+        <h1>{{type}} Page</h1>
+        {% csrf_token %} {{form | crispy}}
+        <button class="btn btn-warning mb-5">Submit</button>
+      </form>
+    </div>
 
-  <button class="btn btn-warning mb-5">Submit</button>
-</form>
+    <div class="img">
+      <h1>Image</h1>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

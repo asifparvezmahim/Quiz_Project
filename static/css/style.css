@@ -35,6 +35,10 @@
     width: 90px;
 }
 
+.name{
+    color: white;
+}
+
 @media only screen and (max-width: 400px){
     .container{
         flex-direction: column-reverse;

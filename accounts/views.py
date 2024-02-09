@@ -14,7 +14,7 @@ from django.contrib.auth.models import User
 
 
 def profile(request):
-    user = request.user
+    user = request.user.id
     print("USER 18 ", user)
     result_history = Result.objects.filter(user=user)
     progress = Result.objects.filter(user=user).last()
