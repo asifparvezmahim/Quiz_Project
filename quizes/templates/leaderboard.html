@@ -1,0 +1,27 @@
+{% extends "base.html" %} {%load static%} {%block script%}
+<link rel="stylesheet" href="{% static 'quizes/style.css' %}" />
+{%endblock%} {% block content %}
+<h4>Leaderboard</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Rank</th>
+      <th scope="col">Candidate ID</th>
+      <th scope="col">Candidate Name</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for leadObj in leadObjs%}
+    <tr>
+      <th scope="col">{{ forloop.counter }}</th>
+      <th scope="col">{{leadObj.user.id}}</th>
+      <th scope="col">
+        {{leadObj.user.first_name}} {{leadObj.user.last_name}}
+      </th>
+      <th scope="col">{{leadObj.score}}</th>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+{%endblock%}

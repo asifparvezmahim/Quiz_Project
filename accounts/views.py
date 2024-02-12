@@ -77,12 +77,15 @@ def user_login(request):
             user_pass = form.cleaned_data["password"]
             user = authenticate(username=user_name, password=user_pass)
             if user is not None:
+                print("Exist")
                 login(request, user)
                 return redirect("profile")
 
             else:
+                print("Not Exist")
                 return redirect("register")
     else:
+        print("Else")
         form = AuthenticationForm()
         return render(request, "authentication.html", {"form": form, "type": "Login"})
 

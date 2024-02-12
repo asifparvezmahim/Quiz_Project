@@ -86,6 +86,12 @@
             >
 
             <a 
+            href="{%url "lead_view" obj.id%}" 
+            class="btn btn-primary"
+            data-pk="{{obj.pk}}"
+            >Leaderboard</a>
+
+            <a 
             href="{%url "rating_view" obj.id%}" 
             class="btn btn-primary"
             data-pk="{{obj.pk}}"

@@ -44,7 +44,6 @@ def quiz_data_view(request, pk):
 
 
 def save_quiz_view(request, pk):
-    print("request.POST: ", request.POST)
     if request.headers.get("x-requested-with") == "XMLHttpRequest":
         questions = []
         data = request.POST
@@ -125,8 +124,12 @@ def save_quiz_view(request, pk):
 
 
 def rating(request, pk):
-    print("pk: ", pk)
     return render(
         request,
         "rating.html",
     )
+
+
+def leaderboard(request, pk):
+    result = Result.objects.filter(quiz_id=pk).order_by("-score")
+    return render(request, "leaderboard.html", {"leadObjs": result})

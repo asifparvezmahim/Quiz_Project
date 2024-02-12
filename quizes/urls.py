@@ -1,5 +1,12 @@
 from django.urls import path
-from .views import quiz_view, QuizList, quiz_data_view, save_quiz_view, rating
+from .views import (
+    quiz_view,
+    QuizList,
+    quiz_data_view,
+    save_quiz_view,
+    rating,
+    leaderboard,
+)
 
 urlpatterns = [
     path("", QuizList, name="quiz"),
@@ -8,4 +15,5 @@ urlpatterns = [
     path("<pk>/save/", save_quiz_view, name="save-view"),
     path("<pk>/data/", quiz_data_view, name="quiz_data_view"),
     path("rating/<pk>/", rating, name="rating_view"),
+    path("leadrrboard/<pk>/", leaderboard, name="lead_view"),
 ]
