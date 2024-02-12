@@ -70,7 +70,8 @@
               Deducted for Each Wrong Answer
             </p>
 
-            <a
+            <div class="d-flex justify-content-between">
+              <a
               href="#"
               class="btn btn-primary modal-button"
               data-pk="{{obj.pk}}"
@@ -83,6 +84,13 @@
               data-bs-target="#quizStartModal"
               >Show Details</a
             >
+
+            <a 
+            href="{%url "rating_view" obj.id%}" 
+            class="btn btn-primary"
+            data-pk="{{obj.pk}}"
+            >Ratings</a>
+            </div>
           </div>
         </div>
       </div>

@@ -122,3 +122,11 @@ def save_quiz_view(request, pk):
 
         else:
             return JsonResponse({"passed": False, "score": score_, "result": result})
+
+
+def rating(request, pk):
+    print("pk: ", pk)
+    return render(
+        request,
+        "rating.html",
+    )
