@@ -5,6 +5,8 @@ from quiz_taken.models import Quiz_Taken
 from django.http import JsonResponse
 from questions.models import Question, Answer
 from result.models import Result
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
 
 
 # class QuizListView(ListView):
@@ -116,11 +118,29 @@ def save_quiz_view(request, pk):
             completed_quizes=completed_quizes,
             percent_of_attempts=percent_of_attempts,
         )
-        if percent_ > quiz.required_to_pass:
-            return JsonResponse({"passed": True, "score": score_, "result": result})
+        # Email
 
-        else:
-            return JsonResponse({"passed": False, "score": score_, "result": result})
+        user = request.user
+        email_subject = "Your Quiz Marks"
+        email_body = render_to_string(
+            "mark_email.html",
+            {
+                "score": score,
+                "quiz_name": exam_name,
+                "user": user,
+                "percent": percent,
+                "fullMarks": fullMarks,
+            },
+        )
+        email = EmailMultiAlternatives(email_subject, "", to=[user.email])
+        email.attach_alternative(email_body, "text/html")
+        email.send()
+
+    if percent_ > quiz.required_to_pass:
+        return JsonResponse({"passed": True, "score": score_, "result": result})
+
+    else:
+        return JsonResponse({"passed": False, "score": score_, "result": result})
 
 
 def rating(request, pk):
