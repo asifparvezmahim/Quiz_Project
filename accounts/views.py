@@ -14,6 +14,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 
+@login_required
 def profile(request):
     user = request.user.id
     result_history = Result.objects.filter(user=user)
@@ -86,4 +87,5 @@ def user_login(request):
 
 
 def user_logout(request):
+    logout(request)
     return redirect("user_login")

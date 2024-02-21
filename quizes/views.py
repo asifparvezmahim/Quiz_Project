@@ -8,11 +8,9 @@ from result.models import Result
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.views import View
+from django.contrib.auth.decorators import login_required
 
 
-# class QuizListView(ListView):
-#     model = Quiz
-#     template_name = "main.html"
 def QuizList(request, category_slug=None):
     object_list = Quiz.objects.all()
     if category_slug is not None:
@@ -144,6 +142,7 @@ def save_quiz_view(request, pk):
         return JsonResponse({"passed": False, "score": score_, "result": result})
 
 
+@login_required
 def leaderboard(request, pk):
     result = Result.objects.filter(quiz_id=pk).order_by("-score")
     return render(request, "leaderboard.html", {"leadObjs": result})

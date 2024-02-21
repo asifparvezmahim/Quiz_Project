@@ -9,6 +9,13 @@
       >{{request.user.first_name }} {{request.user.last_name}}</span
     >
   </h2>
+  <h4>
+    Account Type : {%if user.is_superuser%}
+    <strong>ADMIN</strong>
+    {%else%}
+    <strong>Normal User</strong>
+    {%endif%}
+  </h4>
   <p>{{request.user.email }}</p>
 </div>
 {% comment %}
