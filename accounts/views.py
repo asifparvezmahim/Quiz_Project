@@ -11,14 +11,13 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 from django.core.mail import EmailMultiAlternatives
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 def profile(request):
     user = request.user.id
-    print("USER 18 ", user)
     result_history = Result.objects.filter(user=user)
     progress = Result.objects.filter(user=user).last()
-    print("PROG-> ", progress)
     return render(
         request, "profile.html", {"result": result_history, "progress": progress}
     )
@@ -29,14 +28,10 @@ def register(request):
         register_form = forms.RegistrationForm(request.POST)
         if register_form.is_valid():
             user = register_form.save()
-            # print("User -> ", user.is_active)
             user.is_active = False
             user.save()
-            print("User -> ", user.is_active)
             token = default_token_generator.make_token(user)
-            print("Token -> ", token)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
-            print("UID -> ", uid)
             confirm_link = (
                 f"https://quiz-time-a04t.onrender.com/authorizaion/active/{uid}/{token}"
             )
@@ -47,6 +42,7 @@ def register(request):
             email = EmailMultiAlternatives(email_subject, "", to=[user.email])
             email.attach_alternative(email_body, "text/html")
             email.send()
+            messages.success(request, "Please Check Your Email to Verify Account.")
             return redirect("register")
 
     else:
@@ -79,19 +75,15 @@ def user_login(request):
             user_pass = form.cleaned_data["password"]
             user = authenticate(username=user_name, password=user_pass)
             if user is not None:
-                print("Exist")
                 login(request, user)
                 return redirect("profile")
 
             else:
-                print("Not Exist")
                 return redirect("register")
     else:
-        print("Else")
         form = AuthenticationForm()
         return render(request, "authentication.html", {"form": form, "type": "Login"})
 
 
 def user_logout(request):
-    logout(request)
     return redirect("user_login")

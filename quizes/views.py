@@ -7,6 +7,7 @@ from questions.models import Question, Answer
 from result.models import Result
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
+from django.views import View
 
 
 # class QuizListView(ListView):
@@ -141,13 +142,6 @@ def save_quiz_view(request, pk):
 
     else:
         return JsonResponse({"passed": False, "score": score_, "result": result})
-
-
-def rating(request, pk):
-    return render(
-        request,
-        "rating.html",
-    )
 
 
 def leaderboard(request, pk):

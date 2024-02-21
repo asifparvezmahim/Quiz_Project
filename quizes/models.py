@@ -2,6 +2,7 @@ from django.db import models
 from django.db import models
 from category.models import Category
 from difficulty.models import Difficulty
+from django.contrib.auth.models import User
 
 # Create your models here.
 
