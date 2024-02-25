@@ -48,11 +48,12 @@ const activateTimer=(time)=>{
                 alert("Time Over")
                 sendData()
             },500)
-
            }
-
            timerBox.innerHTML=`<b>${displayMinutes}:${displaySecond}</b>`
+           
     },1000)
+
+
 }
 
 $.ajax({
@@ -83,23 +84,17 @@ $.ajax({
         });
         activateTimer(response.time)
     },
-
-    // error:function(error){
-    //     console.log(error);
-    // }
 })
 
 const quizForm=document.getElementById("quiz-form")
 const csrf=document.getElementsByName("csrfmiddlewaretoken")
-
-// console.log(quizForm);
-// console.log(csrf);
+const submitBtn=document.getElementById("submit_btn")
+console.log(submitBtn);
 
 
 
 const sendData=()=>{
-    const elements=[...document.getElementsByClassName("ans")]
-//    console.log(elements);
+   const elements=[...document.getElementsByClassName("ans")]
    const data={}
    data['csrfmiddlewaretoken']=csrf[0].value
    elements.forEach(el=>{
@@ -125,13 +120,8 @@ const sendData=()=>{
     url:`${url}save/`,
     data:data,
     success:function(response){
-        console.log(response);
         const results=response.result
-        console.log(results);
-
         const x=document.getElementById("quiz-form").style.display="none";
-        
-
         scoreBox.innerHTML=`${response.passed ? "CONGRATILATIONS !!! " : "Upssss.....!!!! You Are Fail"} Your Score is ${response.score}`
 
 
@@ -164,8 +154,6 @@ const sendData=()=>{
                     }
                   }
             }
-
-            // const body=document.getElementsByTagName("BODY")[0]
             resultBox.append(resDiv)
         })
     },
@@ -180,3 +168,10 @@ quizForm.addEventListener('submit',e=>{
     sendData()
 })
 
+
+const submitBtnTimer=document.getElementById("submit_btn")
+console.log("Submit Btn: "+submitBtnTimer);
+function StopCount(){
+    console.log("Stop Timer");
+}
+console.log("Timer "+timer);

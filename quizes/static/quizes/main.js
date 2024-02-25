@@ -1,4 +1,3 @@
-console.log("HLW");
 const modalBtns = [...document.getElementsByClassName('modal-button')]
 const modalbody=document.getElementById('modal-body-confirm')
 const startBtn =document.getElementById("start-button")
