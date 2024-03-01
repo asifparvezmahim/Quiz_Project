@@ -2,59 +2,59 @@ const url=window.location.href
 const quizBox=document.getElementById("quiz-box")
 
 
-const activateTimer=(time)=>{
-    if(time.toString().length<2){
-        timerBox.innerHTML=`<b>0${time}:00</b>`
-    }
+// const activateTimer=(time)=>{
+//     if(time.toString().length<2){
+//         timerBox.innerHTML=`<b>0${time}:00</b>`
+//     }
 
-    else{
-        timerBox.innerHTML=`<b>0${time}:00</b>`
-    }
+//     else{
+//         timerBox.innerHTML=`<b>0${time}:00</b>`
+//     }
 
-    let minutes=time-1
-    let seconds=60
-    let displaySecond
-    let displayMinutes
-
-
-    const timer=setInterval(()=>{
-           seconds --
-           if(seconds<0){
-            seconds=59
-            minutes --
-           }
-
-           if(minutes.toString().length<2){
-            displayMinutes="0"+minutes
-           }
-
-           else{
-            displayMinutes=minutes
-           }
+//     let minutes=time-1
+//     let seconds=60
+//     let displaySecond
+//     let displayMinutes
 
 
-           if(seconds.toString().length<2){
-            displaySecond="0"+seconds
-           }
+//     const timer=setInterval(()=>{
+//            seconds --
+//            if(seconds<0){
+//             seconds=59
+//             minutes --
+//            }
 
-           else{
-            displaySecond=seconds
-           }
+//            if(minutes.toString().length<2){
+//             displayMinutes="0"+minutes
+//            }
 
-           if(minutes===0 &&seconds===0){
-            timerBox.innerHTML="<b>00:00</b>"
-            setTimeout(()=>{
-                clearInterval(timer)
-                alert("Time Over")
-                sendData()
-            },500)
-           }
-           timerBox.innerHTML=`<b>${displayMinutes}:${displaySecond}</b>`
+//            else{
+//             displayMinutes=minutes
+//            }
+
+
+//            if(seconds.toString().length<2){
+//             displaySecond="0"+seconds
+//            }
+
+//            else{
+//             displaySecond=seconds
+//            }
+
+//            if(minutes===0 &&seconds===0){
+//             timerBox.innerHTML="<b>00:00</b>"
+//             setTimeout(()=>{
+//                 clearInterval(timer)
+//                 alert("Time Over")
+//                 sendData()
+//             },500)
+//            }
+//            timerBox.innerHTML=`<b>${displayMinutes}:${displaySecond}</b>`
            
-    },1000)
+//     },1000)
 
 
-}
+// }
 
 $.ajax({
     type:"GET",
@@ -167,11 +167,3 @@ quizForm.addEventListener('submit',e=>{
     e.preventDefault()
     sendData()
 })
-
-
-const submitBtnTimer=document.getElementById("submit_btn")
-console.log("Submit Btn: "+submitBtnTimer);
-function StopCount(){
-    console.log("Stop Timer");
-}
-console.log("Timer "+timer);

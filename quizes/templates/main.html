@@ -85,6 +85,12 @@
               >Show Details</a
             >
 
+            {% comment %} <a 
+            href="{%url "reviewRating" obj.id%}" 
+            class="btn btn-primary"
+            data-pk="{{obj.pk}}"
+            >Review Rating</a> {% endcomment %}
+
             <a 
             href="{%url "lead_view" obj.id%}" 
             class="btn btn-primary"

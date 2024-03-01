@@ -29,21 +29,21 @@ def register(request):
         register_form = forms.RegistrationForm(request.POST)
         if register_form.is_valid():
             user = register_form.save()
-            user.is_active = False
-            user.save()
-            token = default_token_generator.make_token(user)
-            uid = urlsafe_base64_encode(force_bytes(user.pk))
-            confirm_link = (
-                f"https://quiz-time-a04t.onrender.com/authorizaion/active/{uid}/{token}"
-            )
-            email_subject = "Confirm Your Email"
-            email_body = render_to_string(
-                "confirm_email.html", {"confirm_link": confirm_link}
-            )
-            email = EmailMultiAlternatives(email_subject, "", to=[user.email])
-            email.attach_alternative(email_body, "text/html")
-            email.send()
-            messages.success(request, "Please Check Your Email to Verify Account.")
+            # user.is_active = False
+            # user.save()
+            # token = default_token_generator.make_token(user)
+            # uid = urlsafe_base64_encode(force_bytes(user.pk))
+            # confirm_link = (
+            #     f"https://quiz-time-a04t.onrender.com/authorizaion/active/{uid}/{token}"
+            # )
+            # email_subject = "Confirm Your Email"
+            # email_body = render_to_string(
+            #     "confirm_email.html", {"confirm_link": confirm_link}
+            # )
+            # email = EmailMultiAlternatives(email_subject, "", to=[user.email])
+            # email.attach_alternative(email_body, "text/html")
+            # email.send()
+            messages.success(request, "You Are Successfully Regestered")
             return redirect("register")
 
     else:

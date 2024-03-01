@@ -146,3 +146,8 @@ def save_quiz_view(request, pk):
 def leaderboard(request, pk):
     result = Result.objects.filter(quiz_id=pk).order_by("-score")
     return render(request, "leaderboard.html", {"leadObjs": result})
+
+
+def reviewRating(request, pk):
+    print("PK -> ", pk)
+    return render(request, "reviewRating.html")
